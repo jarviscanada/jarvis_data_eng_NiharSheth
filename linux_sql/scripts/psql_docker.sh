@@ -13,7 +13,7 @@ case $cmd in
   create) # Create container
   if [ $container_status -eq 0 ]; then
 		echo 'Container already exists'
-		exit 1
+		exit 0
 	fi
 
   if [ $# -ne 3 ]; then
@@ -22,7 +22,7 @@ case $cmd in
   fi
 
 	docker volume create pgdata
-	docker run --name jrvs-psql -e POSTGRES_PASSWORD=$db_password -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+	docker run --name jrvs-psql -e POSTGRES_PASSWORD=$db_password POSTGRES_USERNAME=$db_username -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
 	exit $?
 	;;
 
