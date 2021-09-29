@@ -11,8 +11,9 @@ if [ $# -ne 5 ]; then
   echo "Incorrect number of arguments. Usage: ./scripts/host_info.sh psql_host psql_port psql_port db_name psql_user psql_password"
   exit 1
 fi
+export PGPASSWORD=$psql_password
 
-# Host info data: id,hostname,cpu_number,cpu_architecture,cpu_model,cpu_mhz,L2_cache,total_mem,timestamp
+# Host info data: id,hostname,cpu_number,cpu_architecture,cpu_model,cpu_mhz,l2_cache,total_mem,timestamp_info
 # Gather data
 lscpu_out=`lscpu`
 hostname=$(hostname -f)
@@ -26,6 +27,5 @@ timestamp_info=$(date -u +"%Y-%m-%d %H:%M:%S") #current timestamp in `2019-11-26
 
 # Prepare insert statement, connect to database and insert
 insert_stmt="INSERT INTO host_info (hostname,cpu_number,cpu_architecture,cpu_model,cpu_mhz,l2_cache,total_mem,timestamp_info) VALUES ('$hostname',$cpu_number,'$cpu_architecture','$cpu_model',$cpu_mhz,'$l2_cache','$total_mem','$timestamp_info');"
-export PGPASSWORD=$psql_password
 psql -h "$psql_host" -p "$psql_port" -d "$db_name" -U "$psql_user" -c "$insert_stmt"
 exit $?
