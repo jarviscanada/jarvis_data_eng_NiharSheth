@@ -1,3 +1,4 @@
+CREATE DATABASE host_agent;
 \c host_agent;
 
 -- DDL
