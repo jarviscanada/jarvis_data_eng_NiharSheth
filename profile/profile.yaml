@@ -1,0 +1,145 @@
+# Preferred name (Characters only)
+name: "Nihar Sheth"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_NiharSheth
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: "I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I have always had an interest in computers and working with them. During my undergrad I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that data engineering captured my interest and I decided to further my career in it. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time."
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Java
+    - Python
+    - C
+    - Object-oriented design
+    - Windows
+    - Linux
+    - Bash scripting
+    - Git
+  # At least 5 skills
+  competent:
+    - RDBMS/SQL
+    - Agile/Scrum
+    - Networks
+    - GUI design
+    - Numpy library
+    - Pandas library
+    - Seaborn library
+  # At least 5 skills
+  familiar:
+    - Cybersecurity
+    - Operating systems
+    - Hardware engineering
+    - MIPS assembly
+    - VHDL
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Implemented a monitoring agent that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically."
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+  - name: "Springboot App"
+    git_url: "/springboot"
+    description: ""
+  - name: "Python Data Analytics"
+    git_url: "/python_data_anlytics"
+    description: ""
+  - name: "Hadoop"
+    git_url: "/hadoop"
+    description: ""
+  - name: "Spark"
+    git_url: "/spark"
+    description: ""
+  - name: "Cloud/DevOps"
+    git_url: "/cloud_devops"
+    description: ""
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+    #project name
+  - name: "Smart Fire Alarm System"
+    #URL is optional
+    git_url: ""
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Designed and implemented a smart fire alarm system on a Raspberry Pi using Arduino LoRaWAN that detects a fire and calculates an escape route using an array of individual fire detectors that is pushed to a mobile app with MQTT. Implemented using Python, Arduino and various IoT libraries."
+  - name: "Book Tracking/Logging Database"
+    git_url: ""
+    description: "Designed and implemented a simple book logger using SQLite and a text-based query system in Java as a frontend. Users can keep track of books they read and query information on books entered into the system."
+  - name: "Bank Account Application"
+    git_url: ""
+    description: "Coded a Java application using JavaFX for the GUI that simulates a bank account tracking system, users can register accounts and move through reward tier rankings based on their account balance. This project was an exercise in object-oriented programming and UML design."
+  - name: "Inter-domain Routing Control System"
+    git_url: ""
+    description: "Implemented an inter-domain routing algorithm in the C language that simulates the border gateway protocol used in connecting autonomous systems over the internet."
+  - name: "SSL Handshake Protocol"
+    git_url: ""
+    description: "Coded a back-and-forth simulation of the SSL handshake protocol in Java. A client and server program run concurrently and perform the protocol by exchanging and verifying certificates and making use of cipher algorithms to exchange messages."
+  - name: "Videogame Processor for VGA"
+    git_url: ""
+    description: "Programmed a real-time videogame using VHDL on a Spartan-3E FPGA that makes use of the VGA standard to display real-time graphics on a VGA-connected monitor."
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2021-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Developed and implemented various data engineering projects making use of various technologies and languages."
+  - title: "IT Technician"
+    company: "TTEC Computers Inc."
+    duration: "2020-present"
+    description: "Provided IT support and internal support through updating and upgrading ticketing system (ConnectWise Manage). Responsibilities included client support, product management, service documentation and data entry."
+
+#List of edcuation
+education: 
+  - school_name: "Ryerson University"
+    duration: "2016-2021"
+    degree: "Bachelor of Engineering"
+    department: "Computer and Electrical Engineering"
+    # optional
+    awards_achievements: 
+      - "Dean's List (2020): Achieved Dean's List standing in the Fall semester."
+      - "GPA: 3.210"
+  - school_name: "MIT Professional Education"
+    duration: "2021"
+    degree: "Applied Data Science Program"
+    department: "Data Science"
+    awards_achievements: 
+      - "Completed various data science projects implementing data libraries in Python."
+  - school_name: "Chinguacousy Secondary School"
+    duration: "2012-2016"
+    degree: "Ontario Secondary School Diploma with Specialist High Skills Major in Manufacturing"
+    department: "SciTech Regional North Program"
+    awards_achievements: 
+      - "Graduating average: 92.7%"
+#Optional section
+others:
+    #category
+  - title: "Certificates"
+    #list of items
+    bullets:
+      - "Udacity Machine Learning (2019)"
+  - title: "Awards"
+    bullets:
+      - "Winner"
+  - title: "Activities/Hobbies"
+    bullets:
+      - "Working on PCs"
+      - "Reading"
+      - "Music"
+      - "Gaming"

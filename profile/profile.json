@@ -1,0 +1,173 @@
+{
+  "education": [
+    {
+      "awards_achievements": [
+        "Dean's List (2020): Achieved Dean's List standing in the Fall semester.",
+        "GPA: 3.210"
+      ],
+      "degree": "Bachelor of Engineering",
+      "department": "Computer and Electrical Engineering",
+      "duration": "2016-2021",
+      "school_name": "Ryerson University"
+    },
+    {
+      "awards_achievements": [
+        "Completed various data science projects implementing data libraries in Python."
+      ],
+      "degree": "Applied Data Science Program",
+      "department": "Data Science",
+      "duration": "2021",
+      "school_name": "MIT Professional Education"
+    },
+    {
+      "awards_achievements": [
+        "Graduating average: 92.7%"
+      ],
+      "degree": "Ontario Secondary School Diploma with Specialist High Skills Major in Manufacturing",
+      "department": "SciTech Regional North Program",
+      "duration": "2012-2016",
+      "school_name": "Chinguacousy Secondary School"
+    }
+  ],
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_NiharSheth",
+  "highlighted_projects": [
+    {
+      "description": "Designed and implemented a smart fire alarm system on a Raspberry Pi using Arduino LoRaWAN that detects a fire and calculates an escape route using an array of individual fire detectors that is pushed to a mobile app with MQTT. Implemented using Python, Arduino and various IoT libraries.",
+      "git_url": "",
+      "name": "Smart Fire Alarm System"
+    },
+    {
+      "description": "Designed and implemented a simple book logger using SQLite and a text-based query system in Java as a frontend. Users can keep track of books they read and query information on books entered into the system.",
+      "git_url": "",
+      "name": "Book Tracking/Logging Database"
+    },
+    {
+      "description": "Coded a Java application using JavaFX for the GUI that simulates a bank account tracking system, users can register accounts and move through reward tier rankings based on their account balance. This project was an exercise in object-oriented programming and UML design.",
+      "git_url": "",
+      "name": "Bank Account Application"
+    },
+    {
+      "description": "Implemented an inter-domain routing algorithm in the C language that simulates the border gateway protocol used in connecting autonomous systems over the internet.",
+      "git_url": "",
+      "name": "Inter-domain Routing Control System"
+    },
+    {
+      "description": "Coded a back-and-forth simulation of the SSL handshake protocol in Java. A client and server program run concurrently and perform the protocol by exchanging and verifying certificates and making use of cipher algorithms to exchange messages.",
+      "git_url": "",
+      "name": "SSL Handshake Protocol"
+    },
+    {
+      "description": "Programmed a real-time videogame using VHDL on a Spartan-3E FPGA that makes use of the VGA standard to display real-time graphics on a VGA-connected monitor.",
+      "git_url": "",
+      "name": "Videogame Processor for VGA"
+    }
+  ],
+  "jarvis_projects": [
+    {
+      "description": "Implemented a monitoring agent that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically.",
+      "git_url": "/linux_sql",
+      "name": "Cluster Monitor"
+    },
+    {
+      "description": [
+        "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
+        "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      ],
+      "git_url": "/core_java",
+      "name": "Core Java Apps"
+    },
+    {
+      "description": "",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "",
+      "git_url": "/python_data_anlytics",
+      "name": "Python Data Analytics"
+    },
+    {
+      "description": "",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
+    },
+    {
+      "description": "",
+      "git_url": "/spark",
+      "name": "Spark"
+    },
+    {
+      "description": "",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
+    }
+  ],
+  "name": "Nihar Sheth",
+  "others": [
+    {
+      "bullets": [
+        "Udacity Machine Learning (2019)"
+      ],
+      "title": "Certificates"
+    },
+    {
+      "bullets": [
+        "Winner"
+      ],
+      "title": "Awards"
+    },
+    {
+      "bullets": [
+        "Working on PCs",
+        "Reading",
+        "Music",
+        "Gaming"
+      ],
+      "title": "Activities/Hobbies"
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "Jarvis",
+      "description": "Developed and implemented various data engineering projects making use of various technologies and languages.",
+      "duration": "2021-present",
+      "title": "Software Developer"
+    },
+    {
+      "company": "TTEC Computers Inc.",
+      "description": "Provided IT support and internal support through updating and upgrading ticketing system (ConnectWise Manage). Responsibilities included client support, product management, service documentation and data entry.",
+      "duration": "2020-present",
+      "title": "IT Technician"
+    }
+  ],
+  "skills": {
+    "competent": [
+      "RDBMS/SQL",
+      "Agile/Scrum",
+      "Networks",
+      "GUI design",
+      "Numpy library",
+      "Pandas library",
+      "Seaborn library"
+    ],
+    "familiar": [
+      "Cybersecurity",
+      "Operating systems",
+      "Hardware engineering",
+      "MIPS assembly",
+      "VHDL"
+    ],
+    "proficient": [
+      "Java",
+      "Python",
+      "C",
+      "Object-oriented design",
+      "Windows",
+      "Linux",
+      "Bash scripting",
+      "Git"
+    ]
+  },
+  "summary": "I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I have always had an interest in computers and working with them. During my undergrad I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that data engineering captured my interest and I decided to further my career in it. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time."
+}
