@@ -1,6 +1,6 @@
 # Nihar Sheth . Jarvis Consulting
 
-I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I have always had an interest in computers and working with them. During my undergrad I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that data engineering captured my interest and I decided to further my career in it. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time.
+I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I always have been interested in computers and working with them. During my undergrad, I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that software and data engineering captured my interest, and I decided to further my career. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time.
 
 ## Skills
 
@@ -15,23 +15,7 @@ I am a computer engineering graduate from Ryerson University. I chose to pursue 
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NiharSheth](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/linux_sql)]: Implemented a monitoring agent that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically.
-
-**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/core_java)]:
-      
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/springboot)]: Not Started
-
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/python_data_anlytics)]: Not Started
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/hadoop)]: Not Started
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/spark)]: Not Started
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/cloud_devops)]: Not Started
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/linux_sql)]: Implemented a monitoring agent on CentOS 7 using Bash and SQL that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically using crontab. This project was an implementation of basic data analytic tecniques.
 
 
 ## Highlighted Projects
@@ -60,17 +44,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NiharSheth
 - Dean's List (2020): Achieved Dean's List standing in the Fall semester.
 - GPA: 3.210
 
-**MIT Professional Education (2021)**, Applied Data Science Program, Data Science
-- Completed various data science projects implementing data libraries in Python.
-
-**Chinguacousy Secondary School (2012-2016)**, Ontario Secondary School Diploma with Specialist High Skills Major in Manufacturing, SciTech Regional North Program
-- Graduating average: 92.7%
-
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
 - Working on PCs
-- Reading
-- Music
-- Gaming
+- Reading fiction novels
+- Music (I enjoy all sorts of genres, rap, metal, alternative)
+- Gaming (action-adventure games, shooters, platformers)
