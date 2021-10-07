@@ -9,24 +9,6 @@
       "department": "Computer and Electrical Engineering",
       "duration": "2016-2021",
       "school_name": "Ryerson University"
-    },
-    {
-      "awards_achievements": [
-        "Completed various data science projects implementing data libraries in Python."
-      ],
-      "degree": "Applied Data Science Program",
-      "department": "Data Science",
-      "duration": "2021",
-      "school_name": "MIT Professional Education"
-    },
-    {
-      "awards_achievements": [
-        "Graduating average: 92.7%"
-      ],
-      "degree": "Ontario Secondary School Diploma with Specialist High Skills Major in Manufacturing",
-      "department": "SciTech Regional North Program",
-      "duration": "2012-2016",
-      "school_name": "Chinguacousy Secondary School"
     }
   ],
   "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_NiharSheth",
@@ -64,65 +46,19 @@
   ],
   "jarvis_projects": [
     {
-      "description": "Implemented a monitoring agent that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically.",
+      "description": "Implemented a monitoring agent on CentOS 7 using Bash and SQL that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically using crontab. This project was an implementation of basic data analytic tecniques.",
       "git_url": "/linux_sql",
       "name": "Cluster Monitor"
-    },
-    {
-      "description": [
-        "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
-        "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.",
-        "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      ],
-      "git_url": "/core_java",
-      "name": "Core Java Apps"
-    },
-    {
-      "description": "",
-      "git_url": "/springboot",
-      "name": "Springboot App"
-    },
-    {
-      "description": "",
-      "git_url": "/python_data_anlytics",
-      "name": "Python Data Analytics"
-    },
-    {
-      "description": "",
-      "git_url": "/hadoop",
-      "name": "Hadoop"
-    },
-    {
-      "description": "",
-      "git_url": "/spark",
-      "name": "Spark"
-    },
-    {
-      "description": "",
-      "git_url": "/cloud_devops",
-      "name": "Cloud/DevOps"
     }
   ],
   "name": "Nihar Sheth",
   "others": [
     {
       "bullets": [
-        "Udacity Machine Learning (2019)"
-      ],
-      "title": "Certificates"
-    },
-    {
-      "bullets": [
-        "Winner"
-      ],
-      "title": "Awards"
-    },
-    {
-      "bullets": [
         "Working on PCs",
-        "Reading",
-        "Music",
-        "Gaming"
+        "Reading fiction novels",
+        "Music (I enjoy all sorts of genres, rap, metal, alternative)",
+        "Gaming (action-adventure games, shooters, platformers)"
       ],
       "title": "Activities/Hobbies"
     }
@@ -169,5 +105,5 @@
       "Git"
     ]
   },
-  "summary": "I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I have always had an interest in computers and working with them. During my undergrad I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that data engineering captured my interest and I decided to further my career in it. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time."
+  "summary": "I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I always have been interested in computers and working with them. During my undergrad, I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that software and data engineering captured my interest, and I decided to further my career. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time."
 }
