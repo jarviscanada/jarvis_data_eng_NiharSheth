@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_NiharSheth
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: "I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I have always had an interest in computers and working with them. During my undergrad I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that data engineering captured my interest and I decided to further my career in it. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time."
+summary: "I am a computer engineering graduate from Ryerson University. I chose to pursue this field of study early on as I always have been interested in computers and working with them. During my undergrad, I gained experience and exposure to various fields such as software design, computer networks and security and data engineering. I found that software and data engineering captured my interest, and I decided to further my career. What fascinates me about data engineering is its versatility as it applies to nearly every industry out there, and its importance is only growing with time."
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -42,28 +42,28 @@ jarvis_projects:
     git_url: "/linux_sql"
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Implemented a monitoring agent that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically."
+    description: "Implemented a monitoring agent on CentOS 7 using Bash and SQL that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically using crontab. This project was an implementation of basic data analytic tecniques."
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
       - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
       - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
       - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
+#  - name: "Springboot App"
+#    git_url: "/springboot"
+#    description: ""
+#  - name: "Python Data Analytics"
+#    git_url: "/python_data_anlytics"
+#    description: ""
+#  - name: "Hadoop"
+#    git_url: "/hadoop"
+#    description: ""
+#  - name: "Spark"
+#    git_url: "/spark"
+#    description: ""
+#  - name: "Cloud/DevOps"
+#    git_url: "/cloud_devops"
+#    description: ""
 
 # List of personal or academic projects
 # Feel free to add more projects
@@ -115,31 +115,31 @@ education:
     awards_achievements: 
       - "Dean's List (2020): Achieved Dean's List standing in the Fall semester."
       - "GPA: 3.210"
-  - school_name: "MIT Professional Education"
-    duration: "2021"
-    degree: "Applied Data Science Program"
-    department: "Data Science"
-    awards_achievements: 
-      - "Completed various data science projects implementing data libraries in Python."
-  - school_name: "Chinguacousy Secondary School"
-    duration: "2012-2016"
-    degree: "Ontario Secondary School Diploma with Specialist High Skills Major in Manufacturing"
-    department: "SciTech Regional North Program"
-    awards_achievements: 
-      - "Graduating average: 92.7%"
+#  - school_name: "MIT Professional Education"
+#    duration: "2021"
+#    degree: "Applied Data Science Program"
+#    department: "Data Science"
+#    awards_achievements: 
+#      - "Completed various data science projects implementing data libraries in Python."
+#  - school_name: "Chinguacousy Secondary School"
+#    duration: "2012-2016"
+#    degree: "Ontario Secondary School Diploma with Specialist High Skills Major in Manufacturing"
+#    department: "SciTech Regional North Program"
+#    awards_achievements: 
+#     - "Graduating average: 92.7%"
 #Optional section
 others:
     #category
   - title: "Certificates"
     #list of items
     bullets:
-      - "Udacity Machine Learning (2019)"
+#      - "Udacity Machine Learning (2019)"
   - title: "Awards"
     bullets:
-      - "Winner"
+#      - "Winner"
   - title: "Activities/Hobbies"
     bullets:
       - "Working on PCs"
-      - "Reading"
-      - "Music"
-      - "Gaming"
+      - "Reading fiction novels"
+      - "Music (I enjoy all sorts of genres, rap, metal, alternative)"
+      - "Gaming (action-adventure games, shooters, platformers)"
