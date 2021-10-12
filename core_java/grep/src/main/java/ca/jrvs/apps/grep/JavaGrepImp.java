@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 public class JavaGrepImp implements JavaGrep {
 
-  private final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
+  private final Logger logger = LoggerFactory.getLogger(JavaGrepImp.class);
 
   private String regex, rootPath, outFile;
 
@@ -44,33 +44,36 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void process() throws IOException {
-    List<String> lines = readLines(new File("C:\\Users\\Nihar\\Documents\\dev\\jarvis_data_eng_NiharSheth\\core_java\\grep\\data\\txt\\shakespeare.txt"));
     List<String> matchedLines = new ArrayList<>();
-    for (String line : lines) {
-      if (containsPattern(line)) {
-        matchedLines.add(line);
+    List<File> fileList = listFiles(getRootPath());
+    for (File file : fileList) {
+      List<String> lines = readLines(file);
+      for (String line : lines) {
+        if (containsPattern(line)) {
+          matchedLines.add(line);
+        }
       }
     }
     writeToFile(matchedLines);
+    this.logger.debug("Wrote matched lines to file.");
   }
 
-  /*
   @Override
   public List<File> listFiles(String rootDir) {
     File directory = new File(rootDir);
-    List<File> fileList = new ArrayList<File>();
+    List<File> fileList = new ArrayList<>();
 
-    for(File file : directory.listFiles()) {
+    for (File file : directory.listFiles()) {
       if (file.isFile()) {
         fileList.add(file);
-      }
-      else if (file.isDirectory()) {
-
+      } else if (file.isDirectory()) {
+        fileList.addAll(listFiles(file.getAbsolutePath()));
+        this.logger.debug(
+            "Encountered directory, adding all files after calling listFiles recursively.");
       }
     }
-
     return fileList;
-  }*/
+  }
 
   @Override
   public List<String> readLines(File inputFile) throws IllegalArgumentException {
@@ -87,6 +90,7 @@ public class JavaGrepImp implements JavaGrep {
       bufferedReader.close();
     } catch (IOException e) {
       System.err.println(e);
+      this.logger.error("Caught an IOException when reading file.");
     }
 
     return linesList;
@@ -112,6 +116,7 @@ public class JavaGrepImp implements JavaGrep {
     }
     fileOutputStream.flush();
     fileOutputStream.close();
+    this.logger.debug("Flushed and closed output file.");
   }
 
   // Getter/setter methods
