@@ -43,12 +43,12 @@ jarvis_projects:
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: "Implemented a monitoring agent on CentOS 7 using Bash and SQL that gathers Linux host information from various machines within a cluster and aggregates them in a single database using PostgreSQL within a Docker container. Static hardware information is stored for each host in one table while resource usage for each host is pushed to the database every minute automatically using crontab. This project was an implementation of basic data analytic tecniques."
-#  - name: "Core Java Apps"
-#    git_url: "/core_java"
-#    description:
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
 #      - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-#      - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-#      - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+      - "JDBC App: Wrote a Java program that implements Java Database Connectivity to interface with a PostgreSQL database using the data access object design pattern to perform create, read, update and delete operations on an individual table in the database. The program connects to the database using a JDBC driver class."
+      - "Grep App: Wrote a Java program that mimics the usage of the grep command line utility to search for text through files using regex pattern matching. Given a root directory the program gets a list of all files within it and any subdirectories recursively and searches them individually for a passed regex pattern, results are then stored in a text file. The application is deployed as a Docker image."
 #  - name: "Springboot App"
 #    git_url: "/springboot"
 #    description: ""
