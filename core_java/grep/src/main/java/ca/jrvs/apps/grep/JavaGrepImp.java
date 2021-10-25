@@ -68,7 +68,7 @@ public class JavaGrepImp implements JavaGrep {
         fileList.add(file);
       } else if (file.isDirectory()) {
         fileList.addAll(listFiles(file.getAbsolutePath()));
-        this.logger.debug(
+        logger.debug(
             "Encountered directory, adding all files after calling listFiles recursively.");
       }
     }
@@ -89,8 +89,7 @@ public class JavaGrepImp implements JavaGrep {
       }
       bufferedReader.close();
     } catch (IOException e) {
-      System.err.println(e);
-      this.logger.error("Caught an IOException when reading file.");
+      logger.error("Caught an IOException when reading file.", e);
     }
 
     return linesList;
@@ -116,7 +115,7 @@ public class JavaGrepImp implements JavaGrep {
     }
     fileOutputStream.flush();
     fileOutputStream.close();
-    this.logger.debug("Flushed and closed output file.");
+    logger.debug("Flushed and closed output file.");
   }
 
   // Getter/setter methods
