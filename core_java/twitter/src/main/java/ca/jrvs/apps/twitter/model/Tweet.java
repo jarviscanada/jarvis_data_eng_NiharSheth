@@ -1,10 +1,43 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+
+@JsonIgnoreProperties({
+    "source",
+    "truncated",
+    "in_reply_to_status_id",
+    "in_reply_to_status_id_str",
+    "in_reply_to_user_id",
+    "in_reply_to_user_id_str",
+    "in_reply_to_screen_name",
+    "user",
+    "place",
+    "quoted_status_id",
+    "quoted_status_id_str",
+    "is_quote_status",
+    "quoted_status",
+    "retweeted_status",
+    "quote_count",
+    "reply_count",
+    "extended_entities",
+    "possibly_sensitive",
+    "filter_level",
+    "lang",
+    "matching_rules",
+    "current_user_retweet",
+    "scopes",
+    "withheld_copyright",
+    "withheld_in_countries",
+    "withheld_scope",
+    "geo",
+    "contributors"
+})
+
 @JsonPropertyOrder({
     "created_at",
     "id",
@@ -23,7 +56,7 @@ public class Tweet {
   @JsonProperty("created_at")
   private String created_at;
   @JsonProperty("id")
-  private int id;
+  private long id;
   @JsonProperty("id_str")
   private String id_str;
   @JsonProperty("text")
@@ -52,12 +85,12 @@ public class Tweet {
   }
 
   @JsonProperty("id")
-  public int getId() {
+  public long getId() {
     return id;
   }
 
   @JsonProperty("id")
-  public void setId(int id) {
+  public void setId(long id) {
     this.id = id;
   }
 

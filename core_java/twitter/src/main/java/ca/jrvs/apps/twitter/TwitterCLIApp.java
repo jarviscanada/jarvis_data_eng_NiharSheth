@@ -53,13 +53,4 @@ public class TwitterCLIApp {
         throw new IllegalArgumentException("Unknown HTTP verb.");
     }
   }
-
-  public static void verifyArgs(String[] args) {
-    if (args.length != 3) {
-      throw new IllegalArgumentException("USAGE: regex rootPath outFile\n"
-          + "- regex: a special text string for describing a search pattern\n"
-          + "- rootPath: root directory path\n"
-          + "- outFile: output file name");
-    }
-  }
 }
