@@ -3,7 +3,6 @@ package ca.jrvs.apps.twitter.controller;
 import ca.jrvs.apps.twitter.model.Coordinates;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.Service;
-import java.util.Arrays;
 import java.util.List;
 
 public class TwitterController implements Controller {
@@ -19,7 +18,6 @@ public class TwitterController implements Controller {
 
   @Override
   public Tweet postTweet(String[] args) {
-    // USAGE: TwitterApp "post" "tweet_text" "latitude:longitude"
     if (args.length != 3) {
       throw new IllegalArgumentException(
           "USAGE: TwitterApp \"post\" \"text\" \"latitude:longitude\"");
@@ -56,7 +54,6 @@ public class TwitterController implements Controller {
 
   @Override
   public Tweet showTweet(String[] args) {
-    // USAGE: TwitterApp "show" "tweet_id" "[field1,field2]"
     if (args.length < 2) {
       throw new IllegalArgumentException(
           "USAGE: TwitterApp \"show\" \"tweet_id\" \"[field1,field2]\"");
@@ -69,7 +66,6 @@ public class TwitterController implements Controller {
 
   @Override
   public List<Tweet> deleteTweet(String[] args) {
-    // USAGE: TwitterApp "delete" "[id1,id2,...]"
     if (args.length < 2) {
       throw new IllegalArgumentException(
           "USAGE: TwitterApp \"delete\" \"[id1, id2,...]\"");

@@ -1,56 +1,94 @@
 package ca.jrvs.apps.twitter;
 
+import ca.jrvs.apps.twitter.controller.Controller;
+import ca.jrvs.apps.twitter.controller.TwitterController;
+import ca.jrvs.apps.twitter.dao.CrdDao;
+import ca.jrvs.apps.twitter.dao.JsonUtil;
+import ca.jrvs.apps.twitter.dao.TwitterDao;
+import ca.jrvs.apps.twitter.dao.helper.HttpHelper;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
-import com.google.gdata.util.common.base.PercentEscaper;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.apache.http.HttpResponse;
-import org.apache.http.util.EntityUtils;
+import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.service.Service;
+import ca.jrvs.apps.twitter.service.TwitterService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import java.util.List;
 
 public class TwitterCLIApp {
-  private static String CONSUMER_KEY = System.getenv("consumerKey");
-  private static String CONSUMER_SECRET = System.getenv("consumerSecret");
-  private static String ACCESS_TOKEN = System.getenv("accessToken");
-  private static String TOKEN_SECRET = System.getenv("tokenSecret");
 
-  public static void main(String[] args) throws URISyntaxException, IOException {
-    TwitterHttpHelper helper = new TwitterHttpHelper(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, TOKEN_SECRET);
-    PercentEscaper percentEscaper = new PercentEscaper("", false);
+  private final Controller controller;
 
-    String verb = null;
-    String status = null;
-    String geotag = null;
-    String id = null;
+  public TwitterCLIApp(Controller controller) {
+    this.controller = controller;
+  }
 
-    if(args.length == 3) {
-      verb = args[0].toLowerCase();
-      status = args[1];
-      geotag = args[2];
+  public static void main(String[] args) {
+    // Declare and instantiate components
+    String CONSUMER_KEY = System.getenv("consumerKey");
+    String CONSUMER_SECRET = System.getenv("consumerSecret");
+    String ACCESS_TOKEN = System.getenv("accessToken");
+    String TOKEN_SECRET = System.getenv("tokenSecret");
+
+    HttpHelper httpHelper = new TwitterHttpHelper(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN,
+        TOKEN_SECRET);
+    CrdDao dao = new TwitterDao(httpHelper);
+    Service service = new TwitterService(dao);
+    Controller controller = new TwitterController(service);
+
+    TwitterCLIApp cliApp = new TwitterCLIApp(controller);
+
+    // TODO: Call run() method
+    try {
+      cliApp.run(args);
+    } catch (JsonProcessingException e) {
+      throw new RuntimeException("Unable to serialize Tweet object to JSON.", e);
     }
-    else if(args.length == 2) {
-      verb = args[0].toLowerCase();
-      id = args[1];
+  }
+
+  /**
+   * Passed arguments are parsed and controller methods are called, results are printed.
+   *
+   * @param args Arguments to pass such as request type and corresponding fields.
+   */
+  public void run(String[] args) throws JsonProcessingException {
+    if (args.length < 2) {
+      throw new IllegalArgumentException("Incorrect number of arguments.\n"
+          + "\tPost tweet - USAGE: TwitterApp \"post\" \"text\" \"latitude:longitude\"\n"
+          + "\tShow tweet - USAGE: TwitterApp \"show\" \"tweet_id\" \"[field1,field2]\"\n"
+          + "\tDelete tweet(s) - USAGE: TwitterApp \"delete\" \"[id1, id2,...]\"");
     }
-    else {
-      throw new IllegalArgumentException("Incorrect number of arguments.");
-    }
+
+    String verb = args[0].toLowerCase();
 
     switch (verb) {
       case "post":
-        // TODO
-        helper.httpPost(new URI("https://api.twitter.com/1.1/statuses/update.json?status=" + percentEscaper.escape(status)));
+        Tweet postedTweet = controller.postTweet(args);
+        printedTweet(postedTweet);
         break;
       case "show":
-        // TODO
-        HttpResponse response = helper.httpGet((new URI("https://api.twitter.com/2/tweets/" + id)));
-        System.out.println(EntityUtils.toString(response.getEntity()));
+        Tweet showedTweet = controller.showTweet(args);
+        printedTweet(showedTweet);
         break;
       case "delete":
-        // TODO
+        List<Tweet> deletedTweets = controller.deleteTweet(args);
+        for (Tweet deletedTweet : deletedTweets) {
+          printedTweet(deletedTweet);
+        }
         break;
       default:
-        throw new IllegalArgumentException("Unknown HTTP verb.");
+        throw new IllegalArgumentException("Unknown request type.");
+    }
+  }
+
+  /**
+   * Utility to print the JSON format of a serialized Tweet object.
+   *
+   * @param tweet Tweet to serialize and print.
+   */
+  public void printedTweet(Tweet tweet) {
+    try {
+      System.out.println(JsonUtil.toJson(tweet, true, false));
+    } catch (JsonProcessingException e) {
+      throw new RuntimeException("Unable to convert Tweet to JSON string.", e);
     }
   }
 }
