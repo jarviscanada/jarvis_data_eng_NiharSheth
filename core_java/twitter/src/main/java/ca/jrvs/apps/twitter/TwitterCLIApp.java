@@ -12,11 +12,15 @@ import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.service.TwitterService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TwitterCLIApp {
 
   private final Controller controller;
 
+  @Autowired
   public TwitterCLIApp(Controller controller) {
     this.controller = controller;
   }
@@ -36,7 +40,6 @@ public class TwitterCLIApp {
 
     TwitterCLIApp cliApp = new TwitterCLIApp(controller);
 
-    // TODO: Call run() method
     try {
       cliApp.run(args);
     } catch (JsonProcessingException e) {

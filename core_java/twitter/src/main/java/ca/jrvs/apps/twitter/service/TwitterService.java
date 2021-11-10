@@ -4,11 +4,14 @@ import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
+@org.springframework.stereotype.Service
 public class TwitterService implements Service {
 
   private final CrdDao dao;
 
+  @Autowired
   public TwitterService(CrdDao dao) {
     this.dao = dao;
   }
@@ -41,7 +44,7 @@ public class TwitterService implements Service {
    * Business logic: Tweet text length should be 280 characters or fewer and latitude/longitude
    * values are within range.
    *
-   * @param tweet Tweet to validate.
+   * @param tweet Tweet to validate
    * @return True if tweet passes all checks.
    */
   public boolean validatePostTweet(Tweet tweet) {
@@ -67,9 +70,9 @@ public class TwitterService implements Service {
   }
 
   /**
-   * Business logic: ID should be in a valid format
+   * Business logic: ID should be in a valid format.
    *
-   * @param id
+   * @param id Tweet ID
    * @return
    */
   public boolean validateID(String id) {

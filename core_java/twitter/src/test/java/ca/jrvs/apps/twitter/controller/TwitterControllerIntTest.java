@@ -34,19 +34,19 @@ public class TwitterControllerIntTest {
     controller = new TwitterController(service);
   }
 
-  @Test
+  //@Test
   public void postTweet() {
     String[] args = new String[] {"post", "Controller layer integration testing.", "43:-79"};
     Tweet postedTweet = controller.postTweet(args);
   }
 
-  @Test
+  //@Test
   public void showTweet() {
     String[] args = new String[] {"show", "1433935396094693378"};
     Tweet showedTweet = controller.showTweet(args);
   }
 
-  @Test
+  //@Test
   public void deleteTweet() {
     String[] args = new String[] {"delete", "1458186722777387018,1458186741064503296,1458186760148635655"};
     List<Tweet> deletedTweets = controller.deleteTweet(args);

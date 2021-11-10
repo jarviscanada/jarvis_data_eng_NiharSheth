@@ -24,7 +24,7 @@ public class TwitterDaoIntTest {
     this.twitterDao = new TwitterDao(httpHelper);
   }
 
-  @Test
+  //@Test
   public void create() {
     Tweet post = new Tweet();
 
@@ -55,7 +55,7 @@ public class TwitterDaoIntTest {
     }
   }
 
-  @Test
+  //@Test
   public void findById() {
     String idStr = "1433935396094693378";
     Tweet findById = twitterDao.findById(idStr);
@@ -66,7 +66,7 @@ public class TwitterDaoIntTest {
     }
   }
 
-  @Test
+  //@Test
   public void deleteById() {
     String idStr = "1457762011614486529";
     Tweet deleteById = twitterDao.deleteById(idStr);

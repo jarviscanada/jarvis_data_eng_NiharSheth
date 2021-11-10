@@ -9,8 +9,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-public class TwitterDao implements CrdDao <Tweet, String> {
+@Repository
+public class TwitterDao implements CrdDao<Tweet, String> {
 
   // URI constants
   private static final String API_BASE_URI = "https://api.twitter.com";
@@ -26,9 +29,10 @@ public class TwitterDao implements CrdDao <Tweet, String> {
   // Response code
   private static final int HTTP_OK = 200;
 
-  private HttpHelper httpHelper;
-  private PercentEscaper percentEscaper = new PercentEscaper("", false);
+  private final HttpHelper httpHelper;
+  private final PercentEscaper percentEscaper = new PercentEscaper("", false);
 
+  @Autowired
   public TwitterDao(HttpHelper httpHelper) {
     this.httpHelper = httpHelper;
   }
@@ -137,7 +141,7 @@ public class TwitterDao implements CrdDao <Tweet, String> {
 
     int status = response.getStatusLine().getStatusCode();
 
-    if(status != expectedStatusCode) {
+    if (status != expectedStatusCode) {
       try {
         System.out.println(EntityUtils.toString(response.getEntity()));
       } catch (IOException e) {
@@ -146,7 +150,7 @@ public class TwitterDao implements CrdDao <Tweet, String> {
       throw new RuntimeException("Unexpected HTTP status: " + status);
     }
 
-    if(response.getEntity() == null) {
+    if (response.getEntity() == null) {
       throw new RuntimeException("Empty response body.");
     }
 
