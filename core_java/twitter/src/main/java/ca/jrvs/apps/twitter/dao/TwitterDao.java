@@ -9,6 +9,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -31,6 +33,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
   private final HttpHelper httpHelper;
   private final PercentEscaper percentEscaper = new PercentEscaper("", false);
+  private final Logger logger = LoggerFactory.getLogger(TwitterDao.class);
 
   @Autowired
   public TwitterDao(HttpHelper httpHelper) {
@@ -49,13 +52,13 @@ public class TwitterDao implements CrdDao<Tweet, String> {
         + "status" + EQUAL + status + AMPERSAND
         + "lat" + EQUAL + latitude + AMPERSAND
         + "long" + EQUAL + longitude;
-
-    System.out.println(uriStr);
+    logger.debug("POST URI:", uriStr);
 
     try {
       uri = new URI(uriStr);
     } catch (URISyntaxException e) {
-      throw new RuntimeException("Unable to create post URI.", e);
+      logger.error("URISyntaxException caught.");
+      throw new RuntimeException("Unable to create POST URI.", e);
     }
 
     return uri;
@@ -66,11 +69,13 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     String uriStr = API_BASE_URI + SHOW_PATH + QUERY_SYM
         + "id" + EQUAL + idStr;
+    logger.debug("SHOW URI:", uriStr);
 
     try {
       uri = new URI(uriStr);
     } catch (URISyntaxException e) {
-      throw new RuntimeException("Unable to create show URI.", e);
+      logger.error("URISyntaxException caught.");
+      throw new RuntimeException("Unable to create SHOW URI.", e);
     }
 
     return uri;
@@ -81,11 +86,13 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     String uriStr = API_BASE_URI + DELETE_PATH +
         idStr + ".json";
+    logger.debug("DELETE URI:", uriStr);
 
     try {
       uri = new URI(uriStr);
     } catch (URISyntaxException e) {
-      throw new RuntimeException("Unable to create delete URI.", e);
+      logger.error("URISyntaxException caught.");
+      throw new RuntimeException("Unable to create DELETE URI.", e);
     }
 
     return uri;
@@ -102,6 +109,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     }
 
     HttpResponse response = httpHelper.httpPost(uri);
+    logger.debug("DAO create() response retrieved.");
 
     return parseResponseBody(response, HTTP_OK);
   }
@@ -117,6 +125,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     }
 
     HttpResponse response = httpHelper.httpGet(uri);
+    logger.debug("DAO findById() response retrieved.");
 
     return parseResponseBody(response, HTTP_OK);
   }
@@ -132,6 +141,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     }
 
     HttpResponse response = httpHelper.httpPost(uri);
+    logger.debug("DAO deleteById() response retrieved.");
 
     return parseResponseBody(response, HTTP_OK);
   }
@@ -145,12 +155,14 @@ public class TwitterDao implements CrdDao<Tweet, String> {
       try {
         System.out.println(EntityUtils.toString(response.getEntity()));
       } catch (IOException e) {
-        // TODO: error log
+        logger.error("IOException caught from unexpected status code.");
       }
+      logger.error("Unexpected HTTP status retrieved.");
       throw new RuntimeException("Unexpected HTTP status: " + status);
     }
 
     if (response.getEntity() == null) {
+      logger.error("Retrieved empty response body");
       throw new RuntimeException("Empty response body.");
     }
 
@@ -159,12 +171,14 @@ public class TwitterDao implements CrdDao<Tweet, String> {
     try {
       jsonStr = EntityUtils.toString(response.getEntity());
     } catch (IOException e) {
+      logger.error("IOException caught while converting response to String.");
       throw new RuntimeException("Failed to convert entity to String.", e);
     }
     System.out.println(jsonStr);
     try {
       tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
     } catch (IOException e) {
+      logger.error("IOException caught while converting JSON to Object.");
       throw new RuntimeException("Unable to convert JSON to Object.", e);
     }
 
