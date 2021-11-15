@@ -30,7 +30,7 @@ public class TwitterServiceIntTest {
     this.service = new TwitterService(dao);
   }
 
-  //@Test
+  @Test
   public void postTweet() {
     // Setup Tweet to post
     Tweet postTweet = new Tweet();
@@ -43,14 +43,14 @@ public class TwitterServiceIntTest {
     Tweet postedTweet = service.postTweet(postTweet);
   }
 
-  //@Test
+  @Test
   public void showTweet() {
     String showId = "1433935396094693378";
 
     Tweet showedTweet = service.showTweet(showId, null);
   }
 
-  //@Test
+  @Test
   public void deleteTweets() {
     String deleteId = "1458106966627205122";
     String [] ids = new String[] {deleteId};

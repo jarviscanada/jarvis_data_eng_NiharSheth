@@ -35,7 +35,7 @@ A service layer implements the business logic when it comes to handling valid in
 Several layers are implemented in this project, starting from the frontend CLI application, to the HTTP response layer that communicates directly with Twitter's REST API. There is a linear sequence of dependencies and in order to handle these the Spring framework is used to manage them. An IoC container scans for components in the base package and beans are tagged with stereotypes of `Component`. In the front-end CLI class these dependencies are handled through the constructor. Spring Boot is also implemented here with the web servlet disabled to set up multiple annotations automatically.
 
 # Test
-Each layer of the program was integration tested during development. The linear chain of dependencies allowed for a bottom-up development and as each layer was implemented it was tested.
+Each layer of the program was integration tested during development. The linear chain of dependencies allowed for a bottom-up development and as each layer was implemented it was tested. Integration testing was done using JUnit 4.
 
 ## Deployment
 This project was deployed using Docker to create an image that can easily be pulled from Docker Hub and run on client machines. After packaging the program with Maven, an executable .JAR file is generated in the [target](/target) directory. The [Dockerfile](Dockerfile) indicates the JDK version and location of the latest .JAR executable for the project.
