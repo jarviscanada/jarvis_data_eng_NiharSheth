@@ -24,5 +24,4 @@ public class PrintLetterWithNumber {
     }
     return output;
   }
-
 }
