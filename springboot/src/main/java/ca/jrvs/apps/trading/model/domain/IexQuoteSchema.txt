@@ -1,0 +1,125 @@
+{
+	"type":"object",
+	"properties": {
+		"avgTotalVolume": {
+			"type": "integer"
+		},
+		"calculationPrice": {
+			"type": "string"
+		},
+		"change": {
+			"type": "number"
+		},
+		"changePercent": {
+			"type": "number"
+		},
+		"close": {
+			"type": "integer"
+		},
+		"closeTime": {
+			"type": "integer"
+		},
+		"companyName": {
+			"type": "string"
+		},
+		"delayedPrice": {
+			"type": "integer"
+		},
+		"delayedPriceTime": {
+			"type": "integer"
+		},
+		"extendedChange": {
+			"type": "number"
+		},
+		"extendedChangePercent": {
+			"type": "number"
+		},
+		"extendedPrice": {
+			"type": "number"
+		},
+		"extendedPriceTime": {
+			"type": "number"
+		},
+		"high": {
+			"type": "number"
+		},
+		"iexAskPrice": {
+			"type": "number"
+		},
+		"iexAskSize": {
+			"type": "integer"
+		},
+		"iexBidPrice": {
+			"type": "integer"
+		},
+		"iexBidSize": {
+			"type": "integer"
+		},
+		"iexLastUpdated": {
+			"type": "integer"
+		},
+		"iexMarketPercent": {
+			"type": "number"
+		},
+		"iexRealtimePrice": {
+			"type": "number"
+		},
+		"iexRealtimeSize": {
+			"type": "integer"
+		},
+		"iexVolume": {
+			"type": "integer"
+		},
+		"latestPrice": {
+			"type": "number"
+		},
+		"latestSource": {
+			"type": "string"
+		},
+		"latestTime": {
+			"type": "string"
+		},
+		"latestUpdate": {
+			"type": "integer"
+		},
+		"latestVolume": {
+			"type": "number"
+		},
+		"low": {
+			"type": "number"
+		},
+		"marketCap": {
+			"type": "integer"
+		},
+		"open": {
+			"type": "number"
+		},
+		"peRatio": {
+			"type": "number"
+		},
+		"previousClose": {
+			"type": "number"
+		},
+		"primaryExchange": {
+			"type": "string"
+		},
+		"sector": {
+			"type": "string"
+		},
+		"symbol": {
+			"type": "string"
+		},
+		"volume": {
+			"type": "number"
+		},
+		"week52High": {
+			"type": "number"
+		},
+		"week52Low": {
+			"type": "number"
+		},
+		"ytdChange": {
+			"type": "number"
+		}
+	}
+}
