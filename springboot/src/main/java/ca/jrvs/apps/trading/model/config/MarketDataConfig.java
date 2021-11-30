@@ -4,6 +4,18 @@ public class MarketDataConfig {
 
   private String host, token;
 
+  /**
+   * Default constructor.
+   */
+  public MarketDataConfig() {
+
+  }
+
+  public MarketDataConfig(String host, String token) {
+    this.host = host;
+    this.token = token;
+  }
+
   public String getHost() {
     return host;
   }
