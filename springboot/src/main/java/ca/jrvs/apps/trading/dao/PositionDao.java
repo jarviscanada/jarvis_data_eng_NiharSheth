@@ -23,6 +23,7 @@ public class PositionDao {
   @Autowired
   public PositionDao(DataSource dataSource) {
     this.jdbcTemplate = new JdbcTemplate(dataSource);
+    logger.debug("PositionDao JDBC connection created.");
   }
 
   public Optional<Position> findById(Integer id) {
@@ -33,7 +34,7 @@ public class PositionDao {
           jdbcTemplate.queryForObject(selectSql, BeanPropertyRowMapper.newInstance(Position.class),
               id));
     } catch (EmptyResultDataAccessException e) {
-
+      logger.error("PositionDao findById() failed: " + e);
     }
 
     if (foundPositions.isPresent()) {

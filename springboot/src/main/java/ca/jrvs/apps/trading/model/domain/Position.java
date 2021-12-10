@@ -3,6 +3,7 @@ package ca.jrvs.apps.trading.model.domain;
 import java.util.Objects;
 
 public class Position implements Entity<Integer> {
+
   private Integer accountId;
   private String ticker;
   private Integer position;

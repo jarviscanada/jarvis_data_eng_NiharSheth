@@ -16,15 +16,17 @@ public class TraderDao extends JdbcCrudDao<Trader> {
   private final String TABLE_NAME = "trader";
   private final String ID_COLUMN = "id";
 
-  private JdbcTemplate jdbcTemplate;
-  private SimpleJdbcInsert simpleInsert;
+  private final JdbcTemplate jdbcTemplate;
+  private final SimpleJdbcInsert simpleInsert;
 
   private static final Logger logger = LoggerFactory.getLogger(TraderDao.class);
 
   @Autowired
   public TraderDao(DataSource dataSource) {
     this.jdbcTemplate = new JdbcTemplate(dataSource);
-    this.simpleInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME).usingGeneratedKeyColumns(ID_COLUMN);
+    this.simpleInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME)
+        .usingGeneratedKeyColumns(ID_COLUMN);
+    logger.debug("TraderDao JDBC connection created.");
   }
 
   @Override

@@ -1,7 +1,6 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Entity;
-import ca.jrvs.apps.trading.model.domain.Quote;
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -65,9 +64,10 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
     String selectSql = "SELECT * FROM " + getTableName() + " WHERE " + getIdColumnName() + "=?";
     Optional<T> foundEntities = Optional.empty();
     try {
-      foundEntities = Optional.ofNullable(getJdbcTemplate().queryForObject(selectSql, BeanPropertyRowMapper.newInstance(getEntityClass()), id));
-    } catch(EmptyResultDataAccessException e) {
-
+      foundEntities = Optional.ofNullable(getJdbcTemplate().queryForObject(selectSql,
+          BeanPropertyRowMapper.newInstance(getEntityClass()), id));
+    } catch (EmptyResultDataAccessException e) {
+      logger.error(this.getClass() + " findById() caught exception.");
     }
 
     if (foundEntities.isPresent()) {
@@ -80,7 +80,8 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
   @Override
   public List<T> findAll() {
     String selectSql = "SELECT * FROM " + getTableName();
-    List<T> foundEntities = getJdbcTemplate().query(selectSql, BeanPropertyRowMapper.newInstance(getEntityClass()));
+    List<T> foundEntities = getJdbcTemplate().query(selectSql,
+        BeanPropertyRowMapper.newInstance(getEntityClass()));
     return foundEntities;
   }
 
@@ -89,6 +90,7 @@ public abstract class JdbcCrudDao<T extends Entity<Integer>> implements CrudRepo
   @Override
   public void deleteById(Integer id) {
     if (id == null) {
+      logger.error(this.getClass() + " deleteById() caught exception.");
       throw new IllegalArgumentException("ID cannot be null.");
     }
     String deleteSql = "DELETE FROM " + getTableName() + " WHERE " + getIdColumnName() + "=?";

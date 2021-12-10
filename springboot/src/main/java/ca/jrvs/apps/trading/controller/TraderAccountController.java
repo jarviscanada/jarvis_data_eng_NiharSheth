@@ -6,6 +6,8 @@ import ca.jrvs.apps.trading.model.domain.TraderAccountView;
 import ca.jrvs.apps.trading.service.TraderAccountService;
 import java.sql.Date;
 import java.time.LocalDate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class TraderAccountController {
 
   private final TraderAccountService traderAccountService;
+  private static final Logger logger = LoggerFactory.getLogger(TraderAccountController.class);
 
   @Autowired
   public TraderAccountController(TraderAccountService traderAccountService) {
@@ -48,6 +51,7 @@ public class TraderAccountController {
       trader.setEmail(email);
       return traderAccountService.createTraderAndAccount(trader);
     } catch (Exception e) {
+      logger.error("TraderAccountController createTrader() caught exception.");
       throw ResponseExceptionUtil.getResponseStatusException(e);
     }
   }
@@ -59,6 +63,7 @@ public class TraderAccountController {
     try {
       return traderAccountService.createTraderAndAccount(trader);
     } catch (Exception e) {
+      logger.error("TraderAccountController createTrader() caught exception.");
       throw ResponseExceptionUtil.getResponseStatusException(e);
     }
   }
@@ -69,6 +74,7 @@ public class TraderAccountController {
     try {
       traderAccountService.deleteTraderById(traderId);
     } catch (Exception e) {
+      logger.error("TraderAccountController deleteTrader() caught exception.");
       throw ResponseExceptionUtil.getResponseStatusException(e);
     }
   }
@@ -80,6 +86,7 @@ public class TraderAccountController {
     try {
       return traderAccountService.deposit(traderId, amount);
     } catch (Exception e) {
+      logger.error("TraderAccountController depositFund() caught exception.");
       throw ResponseExceptionUtil.getResponseStatusException(e);
     }
   }
@@ -91,6 +98,7 @@ public class TraderAccountController {
     try {
       return traderAccountService.withdraw(traderId, amount);
     } catch (Exception e) {
+      logger.error("TraderAccountController withdrawFund() caught exception.");
       throw ResponseExceptionUtil.getResponseStatusException(e);
     }
   }

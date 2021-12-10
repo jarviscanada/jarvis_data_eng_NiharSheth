@@ -42,6 +42,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
       MarketDataConfig marketDataConfig) {
     this.httpClientConnectionManager = httpClientConnectionManager;
     IEX_BATCH_URL = marketDataConfig.getHost() + IEX_BATCH_PATH + marketDataConfig.getToken();
+    logger.debug("MarketDataDao JDBC connection created.");
   }
 
   /**
@@ -60,6 +61,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     } else if (quotes.size() == 1) {
       iexQuote = Optional.of(quotes.get(0));
     } else {
+      logger.error("MarketDataDao findById() caught exception.");
       throw new DataRetrievalFailureException("Unexpected number of quotes.");
     }
     return iexQuote;
@@ -76,7 +78,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     List<IexQuote> iexQuotes = new ArrayList<>();
     String tickerString = String.join(",", tickers);
 
-    String uri = String.format(IEX_BATCH_URL, tickerString.toString());
+    String uri = String.format(IEX_BATCH_URL, tickerString);
     String responseString = executeHttpGet(uri).get();
     // Deserialize JSON String to IexQuote object
     JSONObject jsonQuotes = new JSONObject(responseString);
@@ -85,13 +87,15 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
       if (jsonQuotes.has(ticker)) {
         JSONObject jsonQuote = jsonQuotes.getJSONObject(ticker);
         try {
-          //IexQuote quote = JsonUtil.toObjectFromJson(jsonQuote.get("quote").toString(), IexQuote.class);
           iexQuotes.add(JsonUtil.toObjectFromJson(jsonQuote.get("quote").toString(),
               IexQuote.class));
         } catch (IOException e) {
+          logger.error(
+              "MarketDataDao findAllById() caught exception (failed to deserialize JSON).");
           throw new RuntimeException("Failed to deserialize JSON for ticker: " + ticker);
         }
       } else {
+        logger.error("MarketDataDao findAllById() caught exception (parsed unknown ticker).");
         throw new RuntimeException("Unknown ticker in response: " + ticker);
       }
     }
@@ -113,6 +117,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
     try {
       response = httpClient.execute(request);
     } catch (IOException e) {
+      logger.error("MarketDataDao executeHttpGet() caught exception (failed to execute).");
       throw new RuntimeException("Failed to execute GET request.", e);
     }
 
@@ -122,36 +127,29 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
         try {
           responseQuotes = Optional.of(EntityUtils.toString(response.getEntity()));
         } catch (IOException e) {
+          logger.error(
+              "MarketDataDao executeHttpGet() caught exception (failed String conversion).");
           throw new RuntimeException("Failed to convert response to String.", e);
         }
         break;
       case HTTP_UNAUTHORIZED:
+        logger.error("MarketDataDao executeHttpGet() caught exception (401 status code).");
         throw new RuntimeException("HTTP response: Unauthorized.");
       case HTTP_FORBIDDEN:
+        logger.error("MarketDataDao executeHttpGet() caught exception (403 status code).");
         throw new RuntimeException("HTTP response: Forbidden.");
       case HTTP_NOT_FOUND:
+        logger.debug("MarketDataDao executeHttpGet() retrieved 404 status code.");
         return Optional.empty();
       default:
         throw new RuntimeException("GET request HTTP response: " + status);
     }
 
-    /*if (status == HTTP_OK) {
-      try {
-        responseQuotes = Optional.of(EntityUtils.toString(response.getEntity()));
-      } catch (IOException e) {
-        throw new RuntimeException("Failed to convert response to String.", e);
-      }
-    } else if (status == HTTP_NOT_FOUND) {
-      return Optional.empty();
-    } else {
-      throw new RuntimeException("GET request HTTP response: " + status);
-    }*/
-
     return responseQuotes;
   }
 
   /**
-   * Borrow a HTTP client from the connection manager.
+   * Borrow an HTTP client from the connection manager.
    *
    * @return a httpClient
    */

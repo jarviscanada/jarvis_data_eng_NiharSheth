@@ -26,6 +26,7 @@ public class QuoteService {
   public QuoteService(QuoteDao quoteDao, MarketDataDao marketDataDao) {
     this.quoteDao = quoteDao;
     this.marketDataDao = marketDataDao;
+    logger.debug("QuoteService JDBC connection created.");
   }
 
   /**

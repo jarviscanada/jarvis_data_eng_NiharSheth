@@ -33,6 +33,7 @@ public class QuoteDao implements CrudRepository<Quote, String> {
   public QuoteDao(DataSource dataSource) {
     this.jdbcTemplate = new JdbcTemplate(dataSource);
     this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME);
+    logger.debug("QuoteDao JDBC connection created.");
   }
 
   @Override
@@ -129,13 +130,14 @@ public class QuoteDao implements CrudRepository<Quote, String> {
    */
   @Override
   public Optional<Quote> findById(String ticker) {
-    String selectSql = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + "='" + ticker + "'";
+    String selectSql =
+        "SELECT * FROM " + TABLE_NAME + " WHERE " + ID_COLUMN_NAME + "='" + ticker + "'";
     Optional<Quote> foundQuote = Optional.empty();
     try {
       foundQuote = Optional.ofNullable(jdbcTemplate.queryForObject(selectSql,
           BeanPropertyRowMapper.newInstance(Quote.class)));
-    } catch(EmptyResultDataAccessException e) {
-
+    } catch (EmptyResultDataAccessException e) {
+      logger.error("QuoteDao findById() failed: " + e);
     }
 
     if (foundQuote.isPresent()) {

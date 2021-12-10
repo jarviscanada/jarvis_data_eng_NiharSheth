@@ -17,15 +17,17 @@ public class AccountDao extends JdbcCrudDao<Account> {
   private final String TABLE_NAME = "account";
   private final String ID_COLUMN = "id";
 
-  private JdbcTemplate jdbcTemplate;
-  private SimpleJdbcInsert simpleInsert;
+  private final JdbcTemplate jdbcTemplate;
+  private final SimpleJdbcInsert simpleInsert;
 
   private final static Logger logger = LoggerFactory.getLogger(AccountDao.class);
 
   @Autowired
   public AccountDao(DataSource dataSource) {
     this.jdbcTemplate = new JdbcTemplate(dataSource);
-    this.simpleInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME).usingGeneratedKeyColumns(ID_COLUMN);
+    this.simpleInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME)
+        .usingGeneratedKeyColumns(ID_COLUMN);
+    logger.debug("AccountDao JDBC connection created.");
   }
 
   @Override
@@ -70,8 +72,10 @@ public class AccountDao extends JdbcCrudDao<Account> {
 
   @Override
   public int updateOne(Account account) {
-    String updateSql = "UPDATE " + TABLE_NAME + " SET trader_id=?, amount=? WHERE " + ID_COLUMN + "=?";
-    return jdbcTemplate.update(updateSql, new Object[]{account.getTraderId(), account.getAmount(), account.getId()});
+    String updateSql =
+        "UPDATE " + TABLE_NAME + " SET trader_id=?, amount=? WHERE " + ID_COLUMN + "=?";
+    return jdbcTemplate.update(updateSql,
+        account.getTraderId(), account.getAmount(), account.getId());
   }
 
   // Unimplemented methods

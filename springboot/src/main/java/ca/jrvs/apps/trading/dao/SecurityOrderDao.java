@@ -24,6 +24,7 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder> {
     this.jdbcTemplate = new JdbcTemplate(dataSource);
     this.simpleInsert = new SimpleJdbcInsert(dataSource).withTableName(TABLE_NAME)
         .usingGeneratedKeyColumns(ID_COLUMN);
+    logger.debug("SecurityOrderDao JDBC connection created.");
   }
 
   @Override

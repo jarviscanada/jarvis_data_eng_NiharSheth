@@ -11,15 +11,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+//@EnableTransactionManagement
 public class AppConfig {
 
-  private Logger logger = LoggerFactory.getLogger(AppConfig.class);
+  private final Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
   @Bean
   public MarketDataConfig marketDataConfig() {
     MarketDataConfig marketDataConfig = new MarketDataConfig();
     marketDataConfig.setHost("https://cloud.iexapis.com/v1/");
     marketDataConfig.setToken(System.getenv("IEX_PUB_TOKEN"));
+    logger.debug("AppConfig marketDataConfig() configured with API details.");
     return marketDataConfig;
   }
 
@@ -38,6 +40,7 @@ public class AppConfig {
     basicDataSource.setUsername(user);
     basicDataSource.setPassword(password);
 
+    logger.debug("AppConfig dataSource() configured with JDBC details.");
     return basicDataSource;
   }
 
@@ -46,6 +49,7 @@ public class AppConfig {
     PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
     cm.setMaxTotal(50);
     cm.setDefaultMaxPerRoute(50);
+    logger.debug("AppConfig httpClientConnectionManager created.");
     return cm;
   }
 }

@@ -37,9 +37,13 @@ public class Quote implements Entity<String> {
     this.ticker = ticker;
   }
 
-  public String getTicker() { return ticker; }
+  public String getTicker() {
+    return ticker;
+  }
 
-  public void setTicker(String ticker) { this.ticker = ticker; }
+  public void setTicker(String ticker) {
+    this.ticker = ticker;
+  }
 
   public Double getLastPrice() {
     return lastPrice;
@@ -92,6 +96,7 @@ public class Quote implements Entity<String> {
         ",\nask_size=" + askSize +
         "\n}";
   }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {

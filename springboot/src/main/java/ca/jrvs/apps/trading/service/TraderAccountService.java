@@ -7,23 +7,29 @@ import ca.jrvs.apps.trading.dao.TraderDao;
 import ca.jrvs.apps.trading.model.domain.Account;
 import ca.jrvs.apps.trading.model.domain.Trader;
 import ca.jrvs.apps.trading.model.domain.TraderAccountView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TraderAccountService {
-  private TraderDao traderDao;
-  private AccountDao accountDao;
-  private PositionDao positionDao;
-  private SecurityOrderDao securityOrderDao;
+
+  private final TraderDao traderDao;
+  private final AccountDao accountDao;
+  private final PositionDao positionDao;
+  private final SecurityOrderDao securityOrderDao;
   private Account account;
+  private static final Logger logger = LoggerFactory.getLogger(TraderAccountService.class);
 
   @Autowired
-  public TraderAccountService(TraderDao traderDao, AccountDao accountDao, PositionDao positionDao, SecurityOrderDao securityOrderDao) {
+  public TraderAccountService(TraderDao traderDao, AccountDao accountDao, PositionDao positionDao,
+      SecurityOrderDao securityOrderDao) {
     this.traderDao = traderDao;
     this.accountDao = accountDao;
     this.positionDao = positionDao;
     this.securityOrderDao = securityOrderDao;
+    logger.debug("TraderAccountService JDBC connection created.");
   }
 
   public TraderAccountView createTraderAndAccount(Trader trader) {
@@ -39,17 +45,20 @@ public class TraderAccountService {
 
   public void deleteTraderById(Integer traderId) {
     account = accountDao.findByTraderId(traderId);
-    if(account.getAmount().equals(0f)) {
+    if (account.getAmount().equals(0f)) {
       securityOrderDao.deleteById(traderId);
       accountDao.deleteById(traderId);
       traderDao.deleteById(traderId);
     } else {
-      throw new RuntimeException("A trader can be deleted iff it has no open position and 0 cash balance.");
+      logger.error("TraderAccountService deleteTraderById() caught exception.");
+      throw new RuntimeException(
+          "A trader can be deleted iff it has no open position and 0 cash balance.");
     }
   }
 
   public Account deposit(Integer traderId, Float fund) {
-    if(fund < 0) {
+    if (fund < 0) {
+      logger.error("TraderAccountService deposit() caught exception.");
       throw new IllegalArgumentException("Fund must be a positive value.");
     }
     account = accountDao.findByTraderId(traderId);
@@ -59,13 +68,17 @@ public class TraderAccountService {
   }
 
   public Account withdraw(Integer traderId, Float fund) {
-    if(fund < 0) {
+    if (fund < 0) {
+      logger.error("TraderAccountService withdraw() caught exception (negative fund passed).");
       throw new IllegalArgumentException("Fund must be a positive value.");
     }
 
     account = accountDao.findByTraderId(traderId);
     if (fund > account.getAmount()) {
-      throw new IllegalArgumentException("Cannot withdraw a value higher than the existing account amount.");
+      logger.error(
+          "TraderAccountService withdraw() caught exception (fund passed with value greater than account amount).");
+      throw new IllegalArgumentException(
+          "Cannot withdraw a value higher than the existing account amount.");
     }
 
     account.setAmount(account.getAmount() - fund);
