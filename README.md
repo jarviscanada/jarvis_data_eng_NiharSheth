@@ -23,6 +23,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NiharSheth
   - Grep App: Wrote a Java program that mimics the usage of the grep command line utility to search for text through files using regex pattern matching. Given a root directory the program gets a list of all files within it and any subdirectories recursively and searches them individually for a passed regex pattern, results are then stored in a text file. The application is deployed as a Docker image.
   - Twitter App: Java program using Spring Boot that communicates with Twitter's REST API to create, read and delete tweets from a developer account. This project is deployed through Docker and runs on the command line to post a tweet with a text status and point coordinates, show a tweet by its unique ID value or delete a series of tweets.
 
+**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_NiharSheth/tree/master/springboot)]: A trading platform implemented in Java 8 with the Spring Boot framekwork that consumes the IEX Cloud REST API to pull, update and read market data such as daily lists, quotes and security orders. Users can manage their profiles and accounts through a webservlet presented with Swagger in their browsers through the use of implemented REST endpoints.
+
 
 ## Highlighted Projects
 **Smart Fire Alarm System**: Designed and implemented a smart fire alarm system on a Raspberry Pi using Arduino LoRaWAN that detects a fire and calculates an escape route using an array of individual fire detectors that is pushed to a mobile app with MQTT. Implemented using Python, Arduino and various IoT libraries.
