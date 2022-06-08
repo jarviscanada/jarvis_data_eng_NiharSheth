@@ -42,6 +42,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_NiharSheth
 
 ## Professional Experiences
 
+**Application Developer, National Bank of Canada (2022-present)**: Took on back-end and front-end tasks as a junior developer. Worked on and implemented projects such as Java 8 to 11 migration on existing internal applications, scripting for API endpoints.Technologies used: Java, Maven, Urban Code Deploy, Jenkins, Python.
+
 **Software Developer, Jarvis (2021-present)**: Developed and implemented various data engineering projects making use of various technologies and languages.
 
 **IT Technician, TTEC Computers Inc. (2020-present)**: Provided IT support and internal support through updating and upgrading ticketing system (ConnectWise Manage). Responsibilities included client support, product management, service documentation and data entry.

@@ -79,6 +79,12 @@
   ],
   "professional_experience": [
     {
+      "company": "National Bank of Canada",
+      "description": "Took on back-end and front-end tasks as a junior developer. Worked on and implemented projects such as Java 8 to 11 migration on existing internal applications, scripting for API endpoints.Technologies used: Java, Maven, Urban Code Deploy, Jenkins, Python.",
+      "duration": "2022-present",
+      "title": "Application Developer"
+    },
+    {
       "company": "Jarvis",
       "description": "Developed and implemented various data engineering projects making use of various technologies and languages.",
       "duration": "2021-present",
