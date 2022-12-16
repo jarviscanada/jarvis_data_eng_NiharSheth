@@ -1,4 +1,8 @@
+.gitignore
+.DS_Store
 target/
+project/
+.bsp/
 *.class
 *.jar
 *.war
@@ -7,3 +11,4 @@ target/
 *.iml
 .idea/
 .eclipse
+built.sbt
