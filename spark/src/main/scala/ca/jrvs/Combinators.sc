@@ -14,7 +14,11 @@
  */
 val ls = List.range(0,10)
 //write you solution here
-
+ls.size // Number of elements
+ls.head // First element
+ls.last // Last element
+ls.take(5) // First 5 elements
+ls.takeRight(5) // Last 5 elements
 
 /**
  * Double each number from the numList and return a flatten list
@@ -24,7 +28,9 @@ val ls = List.range(0,10)
  */
 val numList = List(List(1,2), List(3));
 //write you solution here
-
+numList.flatten.map((num: Int) => num*2)
+numList.map((l: List[Int]) => l.map(_*2)).flatten
+numList.flatMap(l => l.map(_*2))
 
 
 /**
@@ -35,7 +41,10 @@ val numList = List(List(1,2), List(3));
  * https://stackoverflow.com/questions/7764197/difference-between-foldleft-and-reduceleft-in-scala
  */
 //write you solution here
-
+val numList2 = List.range(1, 11)
+numList2.sum
+numList2.foldLeft(0)((a: Int, b: Int) => a+b)
+numList2.reduce((a, b) => a+b)
 
 /**
  * Practice Map and Optional
@@ -47,10 +56,9 @@ val numList = List(List(1,2), List(3));
  * countryMap.getOrElse("Frank", "n/a");
  */
 val countryMap = Map("Amy" -> "Canada", "Sam" -> "US", "Bob" -> "Canada")
-countryMap.get("Amy")
-countryMap.get("edward")
-countryMap.getOrElse("edward", "n/a")
-
+countryMap.get("Amy") // Will return "Canada"
+countryMap.get("edward") // Will return None since key is not found
+countryMap.getOrElse("edward", "n/a") // Will return "n/a" since key is not found
 
 /**
  * Map question2:
@@ -60,6 +68,7 @@ countryMap.getOrElse("edward", "n/a")
  */
 val names = List("Amy", "Sam", "Eric", "Amy")
 //write you solution here
+names.map((name: String) => name -> countryMap.getOrElse(name, "n/a"))
 
 /**
  * Map question3:
@@ -70,7 +79,7 @@ val names = List("Amy", "Sam", "Eric", "Amy")
  */
 //write you solution here
 
-
+names.map((name:String) => countryMap.getOrElse(name, "n/a")).groupBy(country => country).map({ case (country, count) => country -> count.size })
 
 
 
@@ -80,7 +89,7 @@ val names = List("Amy", "Sam", "Eric", "Amy")
  */
 val names2 = List("Amy", "Bob", "Chris", "Dann")
 //write you solution here
-
+List.range(1, names2.size).zip(names2)
 
 /**
  * SQL questions1:
